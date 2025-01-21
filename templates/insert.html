@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tambah Data Absensi</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style/insert.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Tambah Data Absensi</h1>
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+    <form method="POST">
+      <label for="id_absensi">ID Absensi:</label>
+      <input type="text" name="id_absensi" id="id_absensi" required /><br />
+
+      <label for="id_siswa">ID Siswa:</label>
+      <input type="text" name="id_siswa" id="id_siswa" required /><br />
+
+      <label for="id_mapel">ID Mata Pelajaran:</label>
+      <input type="text" name="id_mapel" id="id_mapel" required /><br />
+
+      <label for="tanggal">Tanggal Kehadiran:</label>
+      <input type="date" name="tanggal" id="tanggal" required /><br />
+
+      <label for="status">Status Kehadiran:</label>
+      <input type="text" name="status" id="status" required /><br />
+
+      <input type="submit" value="Tambah Data" />
+    </form>
+    <a href="{{ url_for('index') }}">Kembali ke Daftar Tabel</a>
+  </body>
+</html>
